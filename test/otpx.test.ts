@@ -49,7 +49,10 @@ describe("OTPX.generateOtp", () => {
   it("calls options.run once after OTP is generated", () => {
     let called = 0;
     const otp = OTPX.generateOtp(6, "numeric", {
-      run: () => { called++; }
+      run: (otp) => { 
+        console.log('OTP',otp);
+        called++; 
+      }
     });
     expect(called).toBe(1);
     expect(otp).toMatch(/^\d{6}$/);

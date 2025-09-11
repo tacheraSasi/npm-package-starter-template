@@ -28,8 +28,7 @@ interface OtpOptions {
    * Optional callback invoked once after OTP is generated.
    * Useful for logging, hooks, or side effects.
    */
-  run?: () => void;
-}
+run?: (otp: string) => void | Promise<void>;}
 
 /**
  * OTPX - A simple, secure OTP generator.
@@ -91,7 +90,7 @@ class OTPX {
       otp += chars[randIndex];
     }
     if (options.run) {
-      options.run();
+      options.run(otp);
     }
     return otp;
   }
