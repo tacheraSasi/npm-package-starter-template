@@ -47,7 +47,7 @@ class OTPX {
    * @example
    * ```ts
    * OTPX.generateOtp(6, "alphanumeric", { excludeSimilar: true });
-   * // => "9dXkQ2"
+   *  => "9dXkQ2"
    * ```
    */
   static generateOtp(

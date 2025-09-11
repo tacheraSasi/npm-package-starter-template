@@ -1,31 +1,31 @@
-# OTPX 🔑  
-A lightweight, flexible OTP (One-Time Password) generator for Node.js and TypeScript.  
+# OTPX
+A lightweight, flexible OTP (One-Time Password) generator for Node.js and TypeScript.
 
-Supports multiple charsets (numeric, alphabetic, alphanumeric, hex, or custom), case options, and exclusion of ambiguous characters like `O0Il`.  
-
----
-
-## ✨ Features
-- ✅ Generate OTPs with customizable length  
-- ✅ Built-in charsets: `numeric`, `alphabetic`, `alphanumeric`, `hex`  
-- ✅ Provide your own custom charset  
-- ✅ Exclude visually similar characters (`O`, `0`, `I`, `l`)  
-- ✅ Case handling: upper, lower, or mixed  
-- ✅ Secure random generation using Node.js `crypto`  
+Supports multiple charsets (numeric, alphabetic, alphanumeric, hex, or custom), case options, and exclusion of ambiguous characters like `O0Il`.
 
 ---
 
-## 📦 Installation
+## Features
+- Generate OTPs with customizable length
+- Built-in charsets: `numeric`, `alphabetic`, `alphanumeric`, `hex`
+- Provide your own custom charset
+- Exclude visually similar characters (`O`, `0`, `I`, `l`)
+- Case handling: upper, lower, or mixed
+- Secure random generation using Node.js `crypto`
+
+---
+
+## Installation
 
 ```bash
 npm install otpx
 # or
-yarn add otpx
-````
+
+```
 
 ---
 
-## 🚀 Usage
+## Usage
 
 ### Basic Example
 
@@ -48,7 +48,7 @@ import OTPX from "otpx";
 console.log(OTPX.alphabetic(8)); // e.g. "aZkPqTrB"
 
 // Alphanumeric OTP with options
-console.log(OTPX.alphanumeric(10, { excludeSimilar: true })); 
+console.log(OTPX.alphanumeric(10, { excludeSimilar: true }));
 // e.g. "9kPz3Hd2Gq"
 
 // Hexadecimal OTP
@@ -81,7 +81,7 @@ console.log(OTPX.alphabetic(6, { case: "mixed" })); // "xNdQeM"
 
 ---
 
-## ⚙️ API Reference
+## API Reference
 
 ### `OTPX.generateOtp(length?, charset?, options?)`
 
@@ -101,7 +101,7 @@ console.log(OTPX.alphabetic(6, { case: "mixed" })); // "xNdQeM"
 
 ---
 
-## 🛠️ Example with NestJS
+## Example with NestJS
 
 ```ts
 import { Injectable } from "@nestjs/common";
@@ -117,7 +117,7 @@ export class OtpService {
 
 ---
 
-## 📜 License
+## License
 
 MIT
 
