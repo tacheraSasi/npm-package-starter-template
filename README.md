@@ -91,6 +91,7 @@ console.log(OTPX.alphabetic(6, { case: "mixed" })); // "xNdQeM"
 
   * `excludeSimilar?: boolean` → Excludes confusing chars (`O0Il`)
   * `case?: "upper" | "lower" | "mixed"` → Controls casing
+  * `run?: () => void` → Optional callback invoked once after OTP is generated. Useful for logging, hooks, or side effects.
 
 ### Shorthand Methods
 
@@ -98,6 +99,22 @@ console.log(OTPX.alphabetic(6, { case: "mixed" })); // "xNdQeM"
 * `OTPX.alphabetic(length?, options?)`
 * `OTPX.alphanumeric(length?, options?)`
 * `OTPX.hex(length?)`
+
+---
+
+### Using the `run` Option
+
+You can pass a `run` callback to `generateOtp` to perform actions after the OTP is generated (e.g., logging, hooks, analytics):
+
+```ts
+import OTPX from "otpx";
+
+OTPX.generateOtp(6, "numeric", {
+  run: () => {
+    console.log("OTP was generated!");
+  }
+});
+```
 
 ---
 

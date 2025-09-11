@@ -12,12 +12,23 @@ type OtpCharset =
 
 /**
  * Options to customize OTP generation.
+ *
+ * @property excludeSimilar Exclude visually similar characters (O, 0, I, l).
+ * @property case Force case transformation: "upper", "lower", or "mixed".
+ * @property run Optional callback invoked once after OTP is generated. Useful for logging, hooks, or side effects.
+ * @example
+ * OTPX.generateOtp(6, "numeric", { run: () => console.log("OTP generated!") });
  */
 interface OtpOptions {
   /** Exclude visually similar characters (O, 0, I, l). */
   excludeSimilar?: boolean;
   /** Force case transformation. */
   case?: "upper" | "lower" | "mixed";
+  /**
+   * Optional callback invoked once after OTP is generated.
+   * Useful for logging, hooks, or side effects.
+   */
+  run?: () => void;
 }
 
 /**
@@ -78,6 +89,9 @@ class OTPX {
     for (let i = 0; i < length; i++) {
       const randIndex = randomInt(0, chars.length);
       otp += chars[randIndex];
+    }
+    if (options.run) {
+      options.run();
     }
     return otp;
   }

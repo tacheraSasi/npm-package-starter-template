@@ -46,13 +46,22 @@ describe("OTPX.generateOtp", () => {
     expect(otp).toMatch(/^[aeiou]{6}$/);
   });
 
+  it("calls options.run once after OTP is generated", () => {
+    let called = 0;
+    const otp = OTPX.generateOtp(6, "numeric", {
+      run: () => { called++; }
+    });
+    expect(called).toBe(1);
+    expect(otp).toMatch(/^\d{6}$/);
+  });
+
   it("throws for length <= 0", () => {
     expect(() => OTPX.generateOtp(0)).toThrow();
     expect(() => OTPX.generateOtp(-1)).toThrow();
   });
 
   it("throws for invalid charset", () => {
-    expect(() => OTPX.generateOtp(6, "invalid")).toThrow();
+  expect(() => OTPX.generateOtp(6, "invalid" as any)).toThrow();
     expect(() => OTPX.generateOtp(6, { custom: "" })).toThrow();
   });
 });
