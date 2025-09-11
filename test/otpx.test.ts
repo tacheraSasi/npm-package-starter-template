@@ -50,7 +50,7 @@ describe("OTPX.generateOtp", () => {
     let called = 0;
     const otp = OTPX.generateOtp(6, "numeric", {
       run: (otp) => { 
-        console.log('OTP',otp);
+        console.log(otp);
         called++; 
       }
     });

@@ -1,4 +1,6 @@
-publish: build:
-	npm publish --access public
 
-build: npm run build
+build:
+	npm run build
+
+publish: build
+	npm publish --access public
