@@ -1,52 +1,41 @@
 {
-  "name": "ekilirelay",
-  "description": "Ekilirelay is a fast, reliable, and free email API service that allows you to send emails with ease. Whether you need to send transactional emails, notifications, or bulk messages, Ekilirelay has you covered with its simple yet powerful API.",
-  "version": "1.0.5",
+  "name": "otpx",
+  "description": "OTPX is a fast, reliable, and lightweight JavaScript/TypeScript package for generating one-time passwords (OTPs) for authentication and verification flows. Supports numeric and alphanumeric OTPs with customizable options.",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "homepage": "https://relay.ekilie.com",
+  "homepage": "https://github.com/tacheraSasi/otpx-npm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tacheraSasi/ekilirelay-npm.git"
+    "url": "https://github.com/tacheraSasi/otpx-npm.git"
   },
   "bugs": {
-    "url": "https://github.com/tacheraSasi/ekilirelay-npm/issues",
-    "email": "support@ekilie.com"
+    "url": "https://github.com/tacheraSasi/otpx-npm/issues"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": {
     "name": "Tachera Sasi",
     "email": "tachera@ekilie.com",
-    "url": "https://ekilie.com"
-  },
-  "funding": {
-    "type": "individual",
-    "url": "https://relay.ekilie.com/donate"
+    "url": "https://github.com/tacheraSasi"
   },
   "scripts": {
     "build": "tsup",
     "test": "jest"
   },
   "keywords": [
-    "ekilirelay",
-    "email API",
-    "free email API",
-    "email sender",
-    "SMTP service",
-    "transactional email",
-    "bulk email",
-    "automated emails",
-    "email notifications",
-    "REST email API",
-    "API for sending emails",
-    "email integration",
-    "email delivery service",
-    "developer-friendly email API",
-    "free email service",
-    "fast and secure email API",
-    "email automation tool",
-    "ekilie email"
+    "otpx",
+    "otp",
+    "one-time password",
+    "otp generator",
+    "authentication",
+    "verification",
+    "security",
+    "typescript",
+    "javascript",
+    "npm package",
+    "numeric otp",
+    "alphanumeric otp"
   ],
   "devDependencies": {
     "jest": "^29.0.0",

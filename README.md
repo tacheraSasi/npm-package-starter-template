@@ -167,8 +167,6 @@ import EkiliRelay from 'ekilirelay';
 
 const FileUploader = () => {
   const [apiKey, setApiKey] = useState('');
-  const [uploadStatus, setUploadStatus] = useState('');
-  const relay = new EkiliRelay(apiKey);
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
@@ -188,7 +186,6 @@ const FileUploader = () => {
       setUploadStatus(`Error: ${error.message}`);
     }
   };
-
   return (
     <div>
       <input
@@ -214,7 +211,6 @@ When using Next.js, you can create pages or components that utilize the package.
 
 #### Example Next.js Page for Sending an Email
 
-```jsx
 // pages/send-email.js
 import { useState } from 'react';
 import EkiliRelay from 'ekilirelay';
@@ -246,7 +242,6 @@ export default function SendEmailPage() {
   return (
     <div style={{ maxWidth: '600px', margin: '2rem auto', padding: '1rem' }}>
       <h1>Send Email</h1>
-      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Enter your API key"
@@ -276,24 +271,20 @@ export default function UploadFilePage() {
   const relay = new EkiliRelay(apiKey);
 
   const handleFileChange = async (e) => {
-    const file = e.target.files[0];
     if (!apiKey) {
       setUploadMessage("Please enter your API key.");
       return;
     }
     if (!file) {
       setUploadMessage("No file selected.");
-      return;
     }
     setUploadMessage("Uploading...");
     try {
       const result = await relay.uploadFile(file);
-      setUploadMessage(result.status === 'success' ? `Uploaded: ${result.filename}, URL: ${result.url}` : `Upload failed: ${result.message}`);
     } catch (error) {
       setUploadMessage(`Error: ${error.message}`);
     }
   };
-
   return (
     <div style={{ maxWidth: '600px', margin: '2rem auto', padding: '1rem' }}>
       <h1>Upload File</h1>
