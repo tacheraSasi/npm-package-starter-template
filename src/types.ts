@@ -1,4 +1,3 @@
-// types.ts
 export interface OTPXOptions {
   algorithm?: 'sha1' | 'sha256' | 'sha512';
   digits?: number;
