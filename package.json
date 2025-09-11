@@ -1,7 +1,7 @@
 {
   "name": "otpx",
   "description": "OTPX is a fast, reliable, and lightweight JavaScript/TypeScript package for generating one-time passwords (OTPs) for authentication and verification flows. Supports numeric and alphanumeric OTPs with customizable options.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
