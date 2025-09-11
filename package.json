@@ -1,0 +1,59 @@
+{
+  "name": "ekilirelay",
+  "description": "Ekilirelay is a fast, reliable, and free email API service that allows you to send emails with ease. Whether you need to send transactional emails, notifications, or bulk messages, Ekilirelay has you covered with its simple yet powerful API.",
+  "version": "1.0.5",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "homepage": "https://relay.ekilie.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tacheraSasi/ekilirelay-npm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tacheraSasi/ekilirelay-npm/issues",
+    "email": "support@ekilie.com"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "Tachera Sasi",
+    "email": "tachera@ekilie.com",
+    "url": "https://ekilie.com"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://relay.ekilie.com/donate"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "jest"
+  },
+  "keywords": [
+    "ekilirelay",
+    "email API",
+    "free email API",
+    "email sender",
+    "SMTP service",
+    "transactional email",
+    "bulk email",
+    "automated emails",
+    "email notifications",
+    "REST email API",
+    "API for sending emails",
+    "email integration",
+    "email delivery service",
+    "developer-friendly email API",
+    "free email service",
+    "fast and secure email API",
+    "email automation tool",
+    "ekilie email"
+  ],
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
