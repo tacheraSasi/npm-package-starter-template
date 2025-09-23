@@ -86,3 +86,66 @@ describe("OTPX shorthand methods", () => {
     expect(OTPX.hex(10)).toMatch(/^[a-f0-9]{10}$/);
   });
 });
+
+describe("Standard OTPs (HOTP/TOTP)", () => {
+  // RFC 4226 test vectors
+  const secret = "12345678901234567890";
+
+  describe("HOTP (RFC 4226)", () => {
+    const expectedValues = [
+      "755224",
+      "287082",
+      "359152",
+      "969429",
+      "338314",
+      "254676",
+      "287922",
+      "162583",
+      "399871",
+      "520489",
+    ];
+
+    expectedValues.forEach((expected, i) => {
+      it(`generates correct OTP for counter ${i}`, () => {
+        const otp = OTPX.hotp({ secret, counter: i });
+        expect(otp).toBe(expected);
+      });
+    });
+  });
+
+  // RFC 6238 test vectors
+  describe("TOTP (RFC 6238)", () => {
+    it("generates correct OTP for SHA1", () => {
+      const totp = OTPX.totp({
+        secret,
+        timestamp: 59 * 1000, // T=59s
+        digits: 8,
+        algorithm: "SHA1",
+      });
+      expect(totp).toBe("94287082");
+    });
+
+    it("generates correct OTP for SHA256", () => {
+      const secret256 = "12345678901234567890123456789012";
+      const totp = OTPX.totp({
+        secret: secret256,
+        timestamp: 59 * 1000, // T=59s
+        digits: 8,
+        algorithm: "SHA256",
+      });
+      expect(totp).toBe("46119246");
+    });
+
+    it("generates correct OTP for SHA512", () => {
+      const secret512 =
+        "1234567890123456789012345678901234567890123456789012345678901234";
+      const totp = OTPX.totp({
+        secret: secret512,
+        timestamp: 59 * 1000, // T=59s
+        digits: 8,
+        algorithm: "SHA512",
+      });
+      expect(totp).toBe("90693936");
+    });
+  });
+});

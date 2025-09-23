@@ -206,8 +206,8 @@ class OTPX {
     algorithm = "SHA1",
     digits = 6,
   }: HotpOptions): string {
-    // The secret should ideally be a Buffer, but we accept a string.
-    // For standard compatibility, it's best to handle Base32 decoding here,
+    // NOTE:The secret should ideally be a Buffer, but we accept a string.
+    // TODO:handle Base32 decoding here,
     // but for now, we'll use the string directly.
     const secretBuffer = Buffer.from(secret, "utf8");
 
