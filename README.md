@@ -1,4 +1,5 @@
 # OTPX
+
 A lightweight, flexible OTP (One-Time Password) generator for Node.js and TypeScript.
 
 Supports multiple charsets (numeric, alphabetic, alphanumeric, hex, or custom), case options, and exclusion of ambiguous characters like `O0Il`.
@@ -6,6 +7,7 @@ Supports multiple charsets (numeric, alphabetic, alphanumeric, hex, or custom), 
 ---
 
 ## Features
+
 - Generate OTPs with customizable length
 - Built-in charsets: `numeric`, `alphabetic`, `alphanumeric`, `hex`
 - Provide your own custom charset
@@ -41,7 +43,7 @@ console.log(otp); // e.g. "583920"
 
 ### Using Different Charsets
 
-```ts
+`````ts
 import OTPX from "otpx";
 
 // Alphabetic OTP (mixed case)
@@ -52,90 +54,78 @@ console.log(OTPX.alphanumeric(10, { excludeSimilar: true }));
 // e.g. "9kPz3Hd2Gq"
 
 // Hexadecimal OTP
-console.log(OTPX.hex(12)); // e.g. "a3f92b8e10d7"
+````markdown
+# npm-package-starter-template
+
+A minimal, reusable TypeScript npm package starter template. This repository demonstrates a small library layout with build, test, and type-checking setup so you can quickly scaffold a new package.
+
+## What's included
+- TypeScript source in `src/`
+- Build with `tsup` (CJS + ESM + types)
+- Tests with `jest` + `ts-jest`
+- `tsconfig.json` configured for library builds
+- `LICENSE` (MIT) and example `README.md`
+
+## Quickstart
+
+1. Clone this repo and replace package metadata in `package.json` (name, author, repository, homepage, description).
+2. Update the package source in `src/` and tests in `test/`.
+3. Install dependencies and develop.
+
+```bash
+npm install
+npm run build      # produce dist/ bundles
+npm run test       # run tests
+npm run typecheck  # run TypeScript type check
+`````
+
+When publishing, update `version` and run `npm publish` (or use CI to publish).
+
+## Development
+
+- Run tests in watch mode:
+
+```bash
+npm run test:watch
 ```
 
----
+- Clean output and rebuild:
 
-### Custom Charset
+```bash
+npm run clean
+npm run build
+```
+
+## Usage Example
+
+Replace `your-package-name` with the name you set in `package.json`.
 
 ```ts
-import OTPX from "otpx";
+import MyPackage from "your-package-name";
 
-// Only vowels
-const otp = OTPX.generateOtp(6, { custom: "aeiou" });
-console.log(otp); // e.g. "uaeioe"
+// use exports from src/index.ts
+console.log(typeof MyPackage);
 ```
 
----
+## Publishing
 
-### Case Options
+1. Ensure `package.json` fields are correct (`name`, `version`, `repository`, `license`, `author`).
+2. Build (`npm run build`) and verify `dist/` contains expected files.
+3. Publish to npm:
 
-```ts
-import OTPX from "otpx";
-
-console.log(OTPX.alphabetic(6, { case: "upper" })); // "QTRPZB"
-console.log(OTPX.alphabetic(6, { case: "lower" })); // "xndqem"
-console.log(OTPX.alphabetic(6, { case: "mixed" })); // "xNdQeM"
+```bash
+npm publish --access public
 ```
 
----
+## Customize
 
-## API Reference
-
-### `OTPX.generateOtp(length?, charset?, options?)`
-
-* `length` (default `6`) → Number of characters
-* `charset` → `"numeric" | "alphabetic" | "alphanumeric" | "hex" | { custom: string }`
-* `options`:
-
-  * `excludeSimilar?: boolean` → Excludes confusing chars (`O0Il`)
-  * `case?: "upper" | "lower" | "mixed"` → Controls casing
-  * `run?: () => void` → Optional callback invoked once after OTP is generated. Useful for logging, hooks, or side effects.
-
-### Shorthand Methods
-
-* `OTPX.numeric(length?)`
-* `OTPX.alphabetic(length?, options?)`
-* `OTPX.alphanumeric(length?, options?)`
-* `OTPX.hex(length?)`
-
----
-
-### Using the `run` Option
-
-You can pass a `run` callback to `generateOtp` to perform actions after the OTP is generated (e.g., logging, hooks, analytics):
-
-```ts
-import OTPX from "otpx";
-
-OTPX.generateOtp(6, "numeric", {
-  run: () => {
-    console.log("OTP was generated!");
-  }
-});
-```
-
----
-
-## Example with NestJS
-
-```ts
-import { Injectable } from "@nestjs/common";
-import OTPX from "otpx";
-
-@Injectable()
-export class OtpService {
-  generateLoginOtp() {
-    return OTPX.numeric(6);
-  }
-}
-```
-
----
+- Add CI (GitHub Actions) to run `npm test` and `npm run build` on PRs.
+- Add linting (ESLint) and formatting (Prettier) if desired.
 
 ## License
 
 MIT
 
-# npm-package-starter-template
+```
+export class OtpService {
+```
